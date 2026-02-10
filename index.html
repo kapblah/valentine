@@ -5,7 +5,6 @@
 <title>Valentine 💌</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- cursive font -->
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -22,7 +21,6 @@ body {
   overflow: hidden;
 }
 
-/* floating hearts */
 body::before {
   content: "❤ ❤ ❤ ❤ ❤";
   position: fixed;
@@ -164,7 +162,7 @@ button:disabled {
     <h1>Will you be my Valentine? 💘</h1>
 
     <button class="yes" id="yesBtn" disabled>Yes</button>
-    <button class="no"  disabled>No</button>
+    <button class="no" disabled>No</button>
 
     <div id="disclaimer">
       Before you choose, watch <a id="watchLink">this</a>
@@ -199,32 +197,41 @@ button:disabled {
 </div>
 
 <script>
-const videoLink = "https://upesstd-my.sharepoint.com/:p:/g/personal/kapeesh_15713_stu_upes_ac_in/IQDLUe_XI9XtSbFzrtgcfmAeARUfXb_gbP7Pxrh1Jqfia7Q?e=sLNUzg&action=embedview
+const videoLink = "https://upesstd-my.sharepoint.com/:p:/g/personal/kapeesh_15713_stu_upes_ac_in/IQDLUe_XI9XtSbFzrtgcfmAeARUfXb_gbP7Pxrh1Jqfia7Q?e=kKo455&action=embedview
 ";
 
-// show disclaimer automatically
-setTimeout(() => {
-  document.getElementById("disclaimer").style.display = "block";
-  document.getElementById("watchLink").onclick = () => {
-    window.open(videoLink, "_blank");
-    document.getElementById("yesBtn").disabled = false;
-  };
-}, 2000);
+window.addEventListener("load", () => {
 
-// yes → envelope
-document.getElementById("yesBtn").onclick = () => {
-  document.getElementById("page1").style.display = "none";
-  document.getElementById("envelopePage").style.display = "flex";
-};
-
-// envelope open → card
-document.getElementById("env").onclick = () => {
-  document.getElementById("env").classList.add("open");
+  // show disclaimer after 2 seconds
   setTimeout(() => {
-    document.getElementById("env").style.opacity = "0";
-    document.getElementById("card").style.display = "block";
-  }, 700);
-};
+    const disclaimer = document.getElementById("disclaimer");
+    const watch = document.getElementById("watchLink");
+    const yesBtn = document.getElementById("yesBtn");
+
+    disclaimer.style.display = "block";
+
+    watch.onclick = () => {
+      window.open(videoLink, "_blank");
+      yesBtn.disabled = false;
+    };
+  }, 2000);
+
+  // yes → envelope
+  document.getElementById("yesBtn").onclick = () => {
+    document.getElementById("page1").style.display = "none";
+    document.getElementById("envelopePage").style.display = "flex";
+  };
+
+  // envelope → card
+  document.getElementById("env").onclick = () => {
+    document.getElementById("env").classList.add("open");
+    setTimeout(() => {
+      document.getElementById("env").style.opacity = "0";
+      document.getElementById("card").style.display = "block";
+    }, 700);
+  };
+
+});
 </script>
 
 </body>
