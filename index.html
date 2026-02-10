@@ -50,22 +50,30 @@
   <button class="yes" onclick="go()">Yes</button>
   <button class="no" onclick="go()">No</button>
 
-  <div id="msg">
-    <strong>Disclaimer!!</strong><br />
-    Before you choose your answer, watch this ❤️
-  </div>
+<div id="msg">
+  <strong>Disclaimer!!</strong><br />
+  Before you choose, watch 
+  <a id="watchLink" href="#" target="_blank" style="color:white; text-decoration:underline;">
+    this ❤️
+  </a>
 </div>
 
-<script>
-  const link = "https://upesstd-my.sharepoint.com/:p:/g/personal/kapeesh_15713_stu_upes_ac_in/IQDLUe_XI9XtSbFzrtgcfmAeAcT1UIf6zFjGaLWwMW6EQpo?e=yqk9yR";
 
-  function go() {
+<script>
+  const link = "https://upesstd-my.sharepoint.com/:p:/g/personal/kapeesh_15713_stu_upes_ac_in/IQDLUe_XI9XtSbFzrtgcfmAeAcT1UIf6zFjGaLWwMW6EQpo?e=UF8EDI";
+
+  // show disclaimer automatically after 2 seconds
+  setTimeout(() => {
     document.getElementById("msg").style.display = "block";
-    setTimeout(() => {
-      window.location.href = link;
-    }, 2000);
+    document.getElementById("watchLink").href = link;
+  }, 2000);
+
+  // buttons still redirect
+  function go() {
+    window.location.href = link;
   }
 </script>
+
 
 </body>
 </html>
