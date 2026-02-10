@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Valentine 💖</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
@@ -23,7 +23,7 @@
       max-width: 400px;
     }
     h1 {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
     button {
       padding: 12px 25px;
@@ -35,10 +35,17 @@
     }
     .yes { background: white; color: #ff4f81; }
     .no  { background: #ff4f81; color: white; }
+
     #msg {
       display: none;
       margin-top: 20px;
       font-size: 16px;
+    }
+
+    a {
+      color: white;
+      text-decoration: underline;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -50,30 +57,26 @@
   <button class="yes" onclick="go()">Yes</button>
   <button class="no" onclick="go()">No</button>
 
-<div id="msg">
-  <strong>Disclaimer!!</strong><br />
-  Before you choose, watch 
-  <a id="watchLink" href="#" target="_blank" style="color:white; text-decoration:underline;">
-    this ❤️
-  </a>
+  <div id="msg">
+    <strong>Disclaimer!!</strong><br>
+    Before you choose, watch <a id="watch" href="#" target="_blank">this ❤️</a>
+  </div>
 </div>
 
-
 <script>
-  const link = "https://upesstd-my.sharepoint.com/:p:/g/personal/kapeesh_15713_stu_upes_ac_in/IQDLUe_XI9XtSbFzrtgcfmAeAcT1UIf6zFjGaLWwMW6EQpo?e=UF8EDI";
+  const link = "https://upesstd-my.sharepoint.com/:p:/g/personal/kapeesh_15713_stu_upes_ac_in/IQDLUe_XI9XtSbFzrtgcfmAeAcT1UIf6zFjGaLWwMW6EQpo?e=tMbecZ";
 
   // show disclaimer automatically after 2 seconds
   setTimeout(() => {
     document.getElementById("msg").style.display = "block";
-    document.getElementById("watchLink").href = link;
+    document.getElementById("watch").href = link;
   }, 2000);
 
-  // buttons still redirect
+  // yes / no buttons
   function go() {
     window.location.href = link;
   }
 </script>
-
 
 </body>
 </html>
