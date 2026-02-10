@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Valentine 💖</title>
+<title>Valentine 💌</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- cursive font -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 * { box-sizing: border-box; }
@@ -11,48 +14,49 @@
 body {
   margin: 0;
   height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
-  color: #fff;
-  background: url("bg.jpg") center/cover no-repeat fixed;
-  overflow: hidden;
-}
-
-/* blur overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  backdrop-filter: blur(10px);
-  background: rgba(0,0,0,0.35);
-  z-index: -1;
-}
-
-.center {
-  height: 100%;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #ffe6ef, #fff7e6);
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+/* floating hearts */
+body::before {
+  content: "❤ ❤ ❤ ❤ ❤";
+  position: fixed;
+  inset: 0;
+  opacity: 0.08;
+  font-size: 80px;
+  text-align: center;
+  line-height: 140px;
+  pointer-events: none;
+}
+
+.center {
+  text-align: center;
 }
 
 .box {
-  background: rgba(255,255,255,0.18);
+  background: #ffffffcc;
   padding: 28px;
-  border-radius: 18px;
-  max-width: 420px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,.3);
+  border-radius: 20px;
+  width: 340px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.15);
 }
 
-h1 { margin-bottom: 16px; }
+h1 {
+  margin-bottom: 16px;
+}
 
 button {
   padding: 12px 26px;
-  border: none;
   border-radius: 30px;
-  font-size: 16px;
+  border: none;
   margin: 8px;
+  font-size: 16px;
   cursor: pointer;
-  transition: .3s;
 }
 
 button:disabled {
@@ -60,60 +64,55 @@ button:disabled {
   cursor: not-allowed;
 }
 
-.yes { background: #fff; color: #ff5c8a; }
-.no  { background: #ff5c8a; color: #fff; }
+.yes { background: #ff5c8a; color: #fff; }
+.no  { background: #bbb; color: #fff; }
 
 #disclaimer {
   display: none;
-  margin-top: 16px;
-  font-size: 15px;
+  margin-top: 14px;
+  font-size: 14px;
 }
 
 #disclaimer a {
-  color: #fff;
-  font-weight: bold;
-  text-decoration: underline;
+  font-weight: 600;
   cursor: pointer;
+  text-decoration: underline;
 }
 
-/* envelope page */
-#envelopePage {
-  display: none;
-}
+/* envelope */
+#envelopePage { display: none; }
 
 .envelope {
-  width: 260px;
-  height: 170px;
-  background: #f5f0e6;
-  position: relative;
+  width: 240px;
+  height: 150px;
+  background: #f4efe6;
   border-radius: 6px;
+  position: relative;
   cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,.2);
+  transition: opacity .6s;
 }
 
 .envelope::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-top: 85px solid #e6dfcf;
-  border-left: 130px solid transparent;
-  border-right: 130px solid transparent;
+  inset: 0;
+  border-top: 75px solid #e8e1d3;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
   transform-origin: top;
-  transition: .8s;
+  transition: transform .8s;
 }
 
 .seal {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   background: #c0392b;
   border-radius: 50%;
   position: absolute;
-  bottom: 45px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  box-shadow: inset 0 0 0 4px rgba(255,255,255,.3);
 }
 
 .open .envelope::before {
@@ -123,54 +122,57 @@ button:disabled {
 /* card */
 .card {
   display: none;
-  margin-top: 24px;
+  margin-top: 30px;
   background: #fff;
-  color: #333;
-  padding: 22px;
-  border-radius: 16px;
-  max-width: 420px;
-  position: relative;
+  padding: 26px;
+  border-radius: 18px;
+  width: 360px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.25);
+  font-family: 'Pacifico', cursive;
+  color: #444;
+  animation: fadeIn .8s ease;
 }
 
-.card::before,
-.card::after {
-  content: "❤";
-  position: absolute;
-  color: #ff7aa2;
+.card p {
+  font-size: 18px;
+  line-height: 1.5;
 }
 
-.card::before { top: 10px; left: 10px; }
-.card::after  { bottom: 10px; right: 10px; }
-
-.doodle {
-  font-size: 14px;
-  opacity: .7;
+.card strong {
+  font-family: 'Quicksand', sans-serif;
 }
 
-.bottom {
+.doodles {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 14px;
+  font-size: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
 
 <body>
 
+<!-- PAGE 1 -->
 <div class="center" id="page1">
   <div class="box">
     <h1>Will you be my Valentine? 💘</h1>
 
     <button class="yes" id="yesBtn" disabled>Yes</button>
-    <button class="no"  id="noBtn"  disabled>No</button>
+    <button class="no"  disabled>No</button>
 
     <div id="disclaimer">
-      <strong>Disclaimer!!</strong><br>
       Before you choose, watch <a id="watchLink">this</a>
     </div>
   </div>
 </div>
 
+<!-- PAGE 2 -->
 <div class="center" id="envelopePage">
   <div>
     <div class="envelope" id="env">
@@ -188,16 +190,17 @@ button:disabled {
         <strong>THANK YOU</strong>, thank you so much for choosing me and being with me &lt;3 :3
       </p>
 
-      <div class="bottom">
-        <div class="doodle">👫🪑</div>
-        <div class="doodle">👫🐈</div>
+      <div class="doodles">
+        <span>👫🪑</span>
+        <span>👫🐈❤</span>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-const videoLink = "https://upesstd-my.sharepoint.com/:p:/g/personal/kapeesh_15713_stu_upes_ac_in/IQDLUe_XI9XtSbFzrtgcfmAeAcT1UIf6zFjGaLWwMW6EQpo?e=WhkMV7";
+const videoLink = "https://upesstd-my.sharepoint.com/:p:/g/personal/kapeesh_15713_stu_upes_ac_in/IQDLUe_XI9XtSbFzrtgcfmAeARUfXb_gbP7Pxrh1Jqfia7Q?e=sLNUzg&action=embedview
+";
 
 // show disclaimer automatically
 setTimeout(() => {
@@ -205,20 +208,20 @@ setTimeout(() => {
   document.getElementById("watchLink").onclick = () => {
     window.open(videoLink, "_blank");
     document.getElementById("yesBtn").disabled = false;
-    document.getElementById("noBtn").disabled = false;
   };
 }, 2000);
 
-// yes click
+// yes → envelope
 document.getElementById("yesBtn").onclick = () => {
   document.getElementById("page1").style.display = "none";
   document.getElementById("envelopePage").style.display = "flex";
 };
 
-// envelope animation
+// envelope open → card
 document.getElementById("env").onclick = () => {
   document.getElementById("env").classList.add("open");
   setTimeout(() => {
+    document.getElementById("env").style.opacity = "0";
     document.getElementById("card").style.display = "block";
   }, 700);
 };
